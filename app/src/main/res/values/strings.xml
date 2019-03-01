@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Vultures</string>
+
+    <string name="page_title_label">Main Page</string>
+
+    <string name="new_account">No account yet? Create one</string>
+
+</resources>
