@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <LinearLayout
+            android:background="@color/dark_theme_background"
+            android:id="@+id/login_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="25dp">
+
+
+    <!--App Names-->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp">
+        <TextView
+                style="?android:listSeparatorTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textSize="24sp"/>
+    </LinearLayout>
+
+
+    <!--Application Logo-->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="0dp">
+
+        <ImageView
+                android:id="@+id/my_image_view"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:src="@drawable/vultureaid_icon"/>
+
+    </LinearLayout>
+    <TextView
+            android:textColor="@color/glow_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="25dp"
+            android:padding="30dp"
+            android:text="@string/the_nest"/>
+
+        <Button
+                android:id="@+id/make_a_post"
+                android:text="@string/make_a_post"
+                android:textAllCaps="false"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        <Button
+                android:id="@+id/view_map"
+                android:text="@string/view_map"
+                android:textAllCaps="false"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        <Button
+                android:id="@+id/view_all_posts"
+                android:text="@string/view_all_posts"
+                android:textAllCaps="false"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -5,4 +5,9 @@
 
     <string name="new_account">No account yet? Create one</string>
 
+    <string name="the_nest">The Nest</string>
+    <string name="make_a_post">Make A Post</string>
+    <string name="view_map">View Map</string>
+    <string name="view_all_posts">View All Posts</string>
+
 </resources>
