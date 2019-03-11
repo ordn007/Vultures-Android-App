@@ -32,11 +32,17 @@ class NestActivity : AppCompatActivity() {
 
         //hooks up buttons -- currently only displays toasts saying what should be launched.
         make_a_post.setOnClickListener{
-            Toast.makeText(baseContext,"Launch PostActivity", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(baseContext,"Launch PostActivity", Toast.LENGTH_SHORT).show()
             launchPostActivity()
         }
         view_map.setOnClickListener{Toast.makeText(baseContext,"Displays the Map", Toast.LENGTH_SHORT).show()}
         view_all_posts.setOnClickListener{Toast.makeText(baseContext,"Launch AllPostsActivity", Toast.LENGTH_SHORT).show()}
+
+        //hooks up bottom panel
+        //disables nest button since we are already there
+        nest_bottom_panel_nest.isEnabled=false
+        nest_bottom_panel_map.setOnClickListener{Toast.makeText(baseContext,"Show Map", Toast.LENGTH_SHORT).show()}
+        nest_bottom_panel_post.setOnClickListener{launchPostActivity()}
 
     }
     private fun launchPostActivity(){

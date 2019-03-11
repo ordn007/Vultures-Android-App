@@ -28,9 +28,34 @@ class PostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
-        //hooks up buttons -- currently only displays toasts saying what should be launched.
+        //hooks up buttons -- currently only displays toasts saying what would happen
         photo_button.setOnClickListener{Toast.makeText(baseContext,"Access photos", Toast.LENGTH_SHORT).show()}
-        post_button.setOnClickListener{Toast.makeText(baseContext,"Commits the post", Toast.LENGTH_SHORT).show()}
+        post_button.setOnClickListener{commitPost()}
+
+        // hooks up the bottom panel
+        post_bottom_panel_map.setOnClickListener{Toast.makeText(baseContext,"Show Map", Toast.LENGTH_SHORT).show()}
+        post_bottom_panel_nest.setOnClickListener{launchNest()}
+        //disables the post button since we are already there
+        post_bottom_panel_post.isEnabled=false
+    }
+
+    //Launches the nest activity
+    private fun launchNest(){
+        val intent = NestActivity.createIntent( baseContext)
+        startActivity(intent)
+    }
+
+    // Will commit the post for others to view
+    private fun commitPost(){
+        val title = title_field.text
+        val location = location_field.text
+        val extraInfo = extra_info_field.text
+        Toast.makeText(baseContext,"Commits post with Title: ${title}, Location: ${location}, Extra: ${extraInfo}", Toast.LENGTH_SHORT).show()
+
+        // Resets the fields
+        title_field.text = null
+        location_field.text = null
+        extra_info_field.text = null
     }
 
     //Life Cycles Methods

@@ -78,21 +78,21 @@
                 android:layout_weight="1"
                 android:gravity="center|bottom">
             <Button
-                    android:id="@+id/bottom_panel_map"
+                    android:id="@+id/nest_bottom_panel_map"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/map"
                     android:textSize="24sp"/>
             <Button
-                    android:id="@+id/bottom_panel_nest"
+                    android:id="@+id/nest_bottom_panel_nest"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/nest"
                     android:textSize="24sp"/>
             <Button
-                    android:id="@+id/bottom_panel_post"
+                    android:id="@+id/nest_bottom_panel_post"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
