@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_login.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,9 +25,10 @@ class MainActivity : AppCompatActivity() {
         val toast = Toast.makeText(applicationContext, myText, Toast.LENGTH_SHORT)
         toast.show()
     }
-
+    // Made this reset the Username and password fields
     fun cleanUpTextFields() {
-
+        login_userName_field.text=null
+        login_password.text=null
     }
 
 
