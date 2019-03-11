@@ -5,20 +5,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_nest.*
+import kotlinx.android.synthetic.main.activity_post.*
 
-class NestActivity : AppCompatActivity() {
+class PostActivity : AppCompatActivity() {
 
 
     companion object {
-        private const val LOG_TAG = "448.NestActivity"
+        private const val LOG_TAG = "448.PostActivity"
 
         fun createIntent(baseContext: Context) : Intent {
-            val intent = Intent( baseContext, NestActivity::class.java)
+            val intent = Intent( baseContext, PostActivity::class.java)
             //intent.putExtra(ANSWER_KEY, isAnswerTrue)
             return intent
         }
@@ -28,20 +26,11 @@ class NestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nest)
+        setContentView(R.layout.activity_post)
 
         //hooks up buttons -- currently only displays toasts saying what should be launched.
-        make_a_post.setOnClickListener{
-            Toast.makeText(baseContext,"Launch PostActivity", Toast.LENGTH_SHORT).show()
-            launchPostActivity()
-        }
-        view_map.setOnClickListener{Toast.makeText(baseContext,"Displays the Map", Toast.LENGTH_SHORT).show()}
-        view_all_posts.setOnClickListener{Toast.makeText(baseContext,"Launch AllPostsActivity", Toast.LENGTH_SHORT).show()}
-
-    }
-    private fun launchPostActivity(){
-        val intent = PostActivity.createIntent(baseContext)
-        startActivity(intent)
+        photo_button.setOnClickListener{Toast.makeText(baseContext,"Access photos", Toast.LENGTH_SHORT).show()}
+        post_button.setOnClickListener{Toast.makeText(baseContext,"Commits the post", Toast.LENGTH_SHORT).show()}
     }
 
     //Life Cycles Methods

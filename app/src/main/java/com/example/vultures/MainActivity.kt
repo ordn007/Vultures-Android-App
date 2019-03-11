@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         var myText = "Attempting to log in as " + userName.text
         val toast = Toast.makeText(applicationContext, myText, Toast.LENGTH_SHORT)
         toast.show()
+
+        //Bypassing actual login and just launching NestActivity
+        val intent = NestActivity.createIntent( baseContext)
+        startActivity(intent)
     }
 
     fun cleanUpTextFields() {
