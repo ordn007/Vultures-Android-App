@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val LOG_TAG = "448.MainActivity"
-
+        private const val SIGNUP = 1
     }
 
 
@@ -40,7 +40,11 @@ class MainActivity : AppCompatActivity() {
         val loginButton = findViewById<Button>(R.id.login_btn_submit)
         val resetButton = findViewById<Button>(R.id.login_btn_reset)
 
-        newAccount.setOnClickListener { setContentView(R.layout.activity_signup) }
+        newAccount.setOnClickListener{
+
+            val intent = SignUp.createIntent(this)
+            startActivityForResult(intent, SIGNUP)
+        }
         loginButton.setOnClickListener { logIn() }
         resetButton.setOnClickListener { cleanUpTextFields() }
     

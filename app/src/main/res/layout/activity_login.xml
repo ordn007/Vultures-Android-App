@@ -21,6 +21,7 @@
                     style="?android:listSeparatorTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/glow_green"
                     android:layout_weight="2"
                     android:gravity="center"
                     android:text="@string/app_name"
@@ -33,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="25dp">
+              >
 
             <ImageView
                     android:id="@+id/my_image_view"
