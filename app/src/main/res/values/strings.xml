@@ -10,4 +10,13 @@
     <string name="view_map">View Map</string>
     <string name="view_all_posts">View All Posts</string>
 
+    <string name="title_label">Title: </string>
+    <string name="location_label">Location: </string>
+    <string name="extra_info_label">Extra Info: </string>
+    <string name="post_button_text">Post </string>
+    <string name="photo_button_text">Photo </string>
+    <string name="map">Map </string>
+    <string name="nest">Nest </string>
+    <string name="post">Post </string>
+
 </resources>
