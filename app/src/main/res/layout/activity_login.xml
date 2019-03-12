@@ -62,12 +62,12 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
                 android:textColor="@color/glow_green"
-
                 android:textAlignment="center"
+                android:text=""
                 android:hint="User Name"/>
 
         <EditText
-                android:id="@+id/login_password"
+                android:id="@+id/login_password_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
@@ -101,11 +101,13 @@
 
         <!--Go to SignUp Page-->
         <TextView
+                android:textColor="@color/white"
                 android:id="@+id/link_signUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="center|bottom"
                 android:text="@string/new_account"
                 android:textSize="16dip" />
 

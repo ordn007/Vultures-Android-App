@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
-
     <LinearLayout
             android:background="@color/dark_theme_background"
             android:id="@+id/login_main_layout"
@@ -27,64 +26,39 @@
                     android:textSize="24sp"/>
         </LinearLayout>
 
-
-        <!--Application Logo-->
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="0dp">
-
-            <ImageView
-                    android:id="@+id/my_image_view"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/vultureaid_icon"/>
-
-        </LinearLayout>
-
-
         <TextView
                 android:textColor="@color/glow_green"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="25dp"
-                android:padding="30dp"
-                android:text="@string/the_nest"/>
+                android:paddingBottom="30dp"
+                android:text="Google API Map"/>
 
 
+        <!--<com.esri.arcgisruntime.mapping.view.MapView-->
+                <!--android:id="@+id/mapView"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="450dp" >-->
+        <!--</com.esri.arcgisruntime.mapping.view.MapView>-->
+
+        <!-- Bottom Bar of three buttons -->
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_weight="1"
-                android:gravity="center">
-
+                android:gravity="center|bottom">
             <Button
-                    android:id="@+id/make_a_post"
-                    android:text="@string/make_a_post"
-                    android:textAllCaps="false"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
-            <Button
-                    android:id="@+id/view_map"
-                    android:text="@string/view_map"
-                    android:textAllCaps="false"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
-            <Button
-                    android:id="@+id/view_all_posts"
-                    android:text="@string/view_all_posts"
-                    android:textAllCaps="false"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:id="@+id/map_bottom_panel_nest"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nest"
+                    android:textSize="24sp"/>
 
         </LinearLayout>
 
 
 
-
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

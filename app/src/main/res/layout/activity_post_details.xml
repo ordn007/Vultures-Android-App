@@ -1,0 +1,175 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+            android:background="@color/dark_theme_background"
+            android:id="@+id/login_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="25dp">
+
+        <!--App Names-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="25dp">
+            <TextView
+                    style="?android:listSeparatorTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textSize="24sp"/>
+        </LinearLayout>
+
+
+        <!--Application Logo-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="0dp">
+
+            <ImageView
+                    android:id="@+id/my_image_view"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/vultureaid_icon"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:textColor="@color/glow_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                android:padding="30dp"
+                android:text="All Food Listings"/>
+
+        <!--FOOD LIST-->
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/list_item_food_source_title_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/list_item_food_source_check_box"
+                    android:layout_toLeftOf="@id/list_item_food_source_check_box"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:text="1 Hour" />
+            <CheckBox
+                    android:id="@+id/list_item_food_source_check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:padding="4dp"/>
+        </RelativeLayout>
+
+
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:background="@color/light_gray"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="25dp">
+
+
+
+            <TextView
+                    android:id="@+id/list_item_crime_date_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    tools:text="Food In Brown"/>
+
+            <TextView
+                    android:id="@+id/list_item_post_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/list_item_crime_date_text_view"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:text="Posted By: Orden"/>
+        </RelativeLayout>
+
+
+        <!--FOOD LIST PLACE HOLDER, THIS WILL BE REMOVED AFTER THE ALPHA RELEASE-->
+        <RelativeLayout android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/list_item_food_source_title_text_view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/list_item_food_source_check_box_2"
+                    android:layout_toLeftOf="@id/list_item_food_source_check_box_2"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:text="1 Day" />
+            <CheckBox
+                    android:id="@+id/list_item_food_source_check_box_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:padding="4dp"/>
+        </RelativeLayout>
+
+
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:background="@color/light_gray"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+            <TextView
+                    android:id="@+id/list_item_crime_date_text_view_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:text="Food In Marquez"/>
+
+            <TextView
+                    android:id="@+id/list_item_post_date_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/list_item_crime_date_text_view_2"
+                    android:textStyle="bold"
+                    android:padding="4dp"
+                    android:text="Posted By: Azam"/>
+        </RelativeLayout>
+
+
+        <!-- Bottom Bar of three buttons -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|bottom">
+            <Button
+                    android:id="@+id/all_post_bottom_panel_nest"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nest"
+                    android:textSize="24sp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
+

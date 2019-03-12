@@ -42,6 +42,7 @@
                     android:src="@drawable/vultureaid_icon"/>
 
         </LinearLayout>
+
         <TextView
                 android:textColor="@color/glow_green"
                 android:layout_width="wrap_content"
@@ -49,76 +50,49 @@
                 android:layout_gravity="center"
                 android:textSize="25dp"
                 android:padding="30dp"
-                android:text="Post"/>
+                android:text="Post a Venue"/>
+
+        <!--Upload File-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+        </LinearLayout>
 
         <!--Title label and title text -->
         <LinearLayout
-                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_margin="5dp">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:layout_gravity="start"
-                    android:text="@string/title_label">
-            </TextView>
+
             <EditText
+                    android:textColorHint="@color/glow_green1"
                     android:id="@+id/title_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/glow_green1"
-                    android:textColor="@color/glow_green"
+                    android:layout_marginBottom="5dp"
+                    android:text=""
                     android:hint="Title"/>
-        </LinearLayout>
 
-        <!-- Location Label and text -->
-        <LinearLayout
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:orientation="horizontal"
-                android:layout_margin="5dp">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:layout_gravity="start"
-                    android:text="@string/location_label">
-            </TextView>
             <EditText
+                    android:textColorHint="@color/glow_green1"
                     android:id="@+id/location_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/glow_green1"
-                    android:textColor="@color/glow_green"
+                    android:layout_marginBottom="5dp"
+                    android:text=""
                     android:hint="Location"/>
-        </LinearLayout>
-        <!-- Extra Info label and text -->
-        <LinearLayout
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:orientation="horizontal"
-                android:layout_margin="5dp">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:layout_gravity="start"
-                    android:text="@string/extra_info_label">
-            </TextView>
+
             <EditText
+                    android:textColorHint="@color/glow_green1"
                     android:id="@+id/extra_info_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/glow_green1"
-                    android:textColor="@color/glow_green"
+                    android:layout_marginBottom="5dp"
+                    android:text=""
                     android:hint="Extra Info"/>
         </LinearLayout>
 
@@ -126,6 +100,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
             <Button
                     android:id="@+id/photo_button"
                     android:layout_width="0dp"
@@ -133,6 +108,7 @@
                     android:layout_weight="1"
                     android:text="@string/photo_button_text"
                     android:textSize="24sp"/>
+
             <Button
                     android:id="@+id/post_button"
                     android:layout_width="0dp"
@@ -146,29 +122,14 @@
         <!-- Bottom Bar of three buttons -->
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center|bottom">
             <Button
-                    android:id="@+id/post_bottom_panel_map"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/map"
-                    android:textSize="24sp"/>
-            <Button
                     android:id="@+id/post_bottom_panel_nest"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/nest"
-                    android:textSize="24sp"/>
-            <Button
-                    android:id="@+id/post_bottom_panel_post"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/post"
                     android:textSize="24sp"/>
 
         </LinearLayout>

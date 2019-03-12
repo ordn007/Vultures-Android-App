@@ -19,7 +19,6 @@ class NestActivity : AppCompatActivity() {
 
         fun createIntent(baseContext: Context) : Intent {
             val intent = Intent( baseContext, NestActivity::class.java)
-            //intent.putExtra(ANSWER_KEY, isAnswerTrue)
             return intent
         }
 
@@ -32,24 +31,33 @@ class NestActivity : AppCompatActivity() {
 
         //hooks up buttons -- currently only displays toasts saying what should be launched.
         make_a_post.setOnClickListener{
-            //Toast.makeText(baseContext,"Launch PostActivity", Toast.LENGTH_SHORT).show()
             launchPostActivity()
         }
-        view_map.setOnClickListener{Toast.makeText(baseContext,"Displays the Map", Toast.LENGTH_SHORT).show()}
-        view_all_posts.setOnClickListener{Toast.makeText(baseContext,"Launch AllPostsActivity", Toast.LENGTH_SHORT).show()}
+        view_map.setOnClickListener{
+//            Toast.makeText(baseContext,"Displays the Map", Toast.LENGTH_SHORT).show()
+            launchMapActivity()
+        }
+        view_all_posts.setOnClickListener{
+            launchPostActivityDetails()
+        }
 
-        //hooks up bottom panel
-        //disables nest button since we are already there
-        nest_bottom_panel_nest.isEnabled=false
-        nest_bottom_panel_map.setOnClickListener{Toast.makeText(baseContext,"Show Map", Toast.LENGTH_SHORT).show()}
-        nest_bottom_panel_post.setOnClickListener{launchPostActivity()}
 
     }
+
     private fun launchPostActivity(){
         val intent = PostActivity.createIntent(baseContext)
         startActivity(intent)
     }
 
+    private fun launchPostActivityDetails(){
+        val intent = PostActivityDetails.createIntent(baseContext)
+        startActivity(intent)
+    }
+
+    private fun launchMapActivity(){
+        val intent = MapActivity.createIntent(baseContext)
+        startActivity(intent)
+    }
     //Life Cycles Methods
     override fun onStart() {
         super.onStart()

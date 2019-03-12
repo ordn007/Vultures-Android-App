@@ -16,7 +16,9 @@
         <activity android:name=".SignUp"></activity>
         <activity android:name=".NestActivity"></activity>
         <activity android:name=".PostActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".PostActivityDetails"></activity>
+        <activity android:name=".MapActivity"></activity>
+        <activity android:name=".LogIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

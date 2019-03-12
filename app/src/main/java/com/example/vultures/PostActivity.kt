@@ -17,7 +17,6 @@ class PostActivity : AppCompatActivity() {
 
         fun createIntent(baseContext: Context) : Intent {
             val intent = Intent( baseContext, PostActivity::class.java)
-            //intent.putExtra(ANSWER_KEY, isAnswerTrue)
             return intent
         }
 
@@ -29,20 +28,30 @@ class PostActivity : AppCompatActivity() {
         setContentView(R.layout.activity_post)
 
         //hooks up buttons -- currently only displays toasts saying what would happen
-        photo_button.setOnClickListener{Toast.makeText(baseContext,"Access photos", Toast.LENGTH_SHORT).show()}
-        post_button.setOnClickListener{commitPost()}
+        photo_button.setOnClickListener{
+            Toast.makeText(baseContext,"Access photos", Toast.LENGTH_SHORT).show()
+        }
+        post_button.setOnClickListener{
+            val title = title_field.text.toString()
+            val location = location_field.text.toString()
+            val extraInfo = extra_info_field.text.toString()
+
+            if (title.isEmpty() || (location.isEmpty() && extraInfo.isEmpty())) {
+                Toast.makeText(baseContext,"Enter A Title and Location or Extra Info", Toast.LENGTH_SHORT).show()
+            }else {
+                commitPost()
+            }
+        }
 
         // hooks up the bottom panel
-        post_bottom_panel_map.setOnClickListener{Toast.makeText(baseContext,"Show Map", Toast.LENGTH_SHORT).show()}
-        post_bottom_panel_nest.setOnClickListener{launchNest()}
-        //disables the post button since we are already there
-        post_bottom_panel_post.isEnabled=false
+        post_bottom_panel_nest.setOnClickListener{
+            launchNest()
+        }
     }
 
     //Launches the nest activity
     private fun launchNest(){
-        val intent = NestActivity.createIntent( baseContext)
-        startActivity(intent)
+        finish()
     }
 
     // Will commit the post for others to view
@@ -53,6 +62,10 @@ class PostActivity : AppCompatActivity() {
         Toast.makeText(baseContext,"Commits post with Title: ${title}, Location: ${location}, Extra: ${extraInfo}", Toast.LENGTH_SHORT).show()
 
         // Resets the fields
+        cleanUpTextFields()
+    }
+
+    fun cleanUpTextFields() {
         title_field.text = null
         location_field.text = null
         extra_info_field.text = null

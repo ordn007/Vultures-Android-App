@@ -8,4 +8,5 @@
     <color name="dark_theme_background">#444444</color>
     <color name="glow_green">#6dffbf</color>
     <color name="glow_green1">#52afaa</color>
+    <color name="light_gray">#A6B6B5</color>
 </resources>

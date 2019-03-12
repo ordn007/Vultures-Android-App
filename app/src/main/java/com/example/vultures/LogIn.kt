@@ -9,11 +9,11 @@ import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
-class MainActivity : AppCompatActivity() {
+class LogIn : AppCompatActivity() {
 
 
     companion object {
-        private const val LOG_TAG = "448.MainActivity"
+        private const val LOG_TAG = "448.LogIn"
         private const val SIGNUP = 1
     }
 
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     // Checks database for user login info, then login/not
     fun logIn() {
         var userName = findViewById<EditText>(R.id.login_userName_field)
-        var myText = "Attempting to log in as " + userName.text
+        var myText = "Logged in as " + userName.text
         val toast = Toast.makeText(applicationContext, myText, Toast.LENGTH_SHORT)
         toast.show()
 
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     // Made this reset the Username and password fields
     fun cleanUpTextFields() {
         login_userName_field.text=null
-        login_password.text=null
+        login_password_field.text=null
     }
 
 
@@ -40,17 +40,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val newAccount = findViewById<TextView>(R.id.link_signUp)
-        val loginButton = findViewById<Button>(R.id.login_btn_submit)
-        val resetButton = findViewById<Button>(R.id.login_btn_reset)
 
-        newAccount.setOnClickListener{
+        link_signUp.setOnClickListener{
 
             val intent = SignUp.createIntent(this)
             startActivityForResult(intent, SIGNUP)
         }
-        loginButton.setOnClickListener { logIn() }
-        resetButton.setOnClickListener { cleanUpTextFields() }
+        login_btn_submit.setOnClickListener {
+
+            val userName = login_userName_field.text.toString()
+            val password = login_password_field.text.toString()
+
+            if (userName.isEmpty() || password.isEmpty()) {
+                Toast.makeText(applicationContext, "Enter a valid Username and Password", Toast.LENGTH_SHORT).show()
+            }else {
+                logIn()
+            }
+
+        }
+        login_btn_reset.setOnClickListener { cleanUpTextFields() }
     
     }
 
