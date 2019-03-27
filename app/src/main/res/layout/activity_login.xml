@@ -98,10 +98,18 @@
                     android:layout_height="wrap_content" />
 
         </LinearLayout>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/glow_green1"
+                android:text="or"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"/>
+
         <Button
                 android:layout_gravity="center"
                 android:id="@+id/google_sign_in"
-                android:text="Google Sign-in"
+                android:text="Continue with ..."
                 android:textAllCaps="false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -122,3 +130,4 @@
 
 
 </android.support.constraint.ConstraintLayout>
+

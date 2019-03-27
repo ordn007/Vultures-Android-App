@@ -8,14 +8,13 @@
             android:id="@+id/login_main_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="25dp">
+            android:orientation="vertical">
 
         <!--App Names-->
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="25dp">
+                android:layout_margin="25dp">
             <TextView
                     style="?android:listSeparatorTextViewStyle"
                     android:layout_width="wrap_content"
@@ -31,8 +30,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="0dp">
+                android:gravity="center">
 
             <ImageView
                     android:id="@+id/my_image_view"
@@ -51,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="25dp"
-                android:padding="30dp"
+                android:layout_margin="30dp"
                 android:text="Register"/>
 
         <EditText
@@ -60,6 +58,8 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
                 android:textColor="@color/glow_green"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
                 android:hint="First Name"/>
 
         <EditText
@@ -68,6 +68,8 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
                 android:textColor="@color/glow_green"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
                 android:hint="Last Name"/>
 
 
@@ -78,6 +80,8 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
                 android:textColor="@color/glow_green"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
                 android:hint="Email Address"/>
 
         <EditText
@@ -86,6 +90,8 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
                 android:textColor="@color/glow_green"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
                 android:hint="User Name"/>
 
         <EditText
@@ -95,6 +101,8 @@
                 android:textColorHint="@color/glow_green1"
                 android:textColor="@color/glow_green"
                 android:inputType="textPassword"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
                 android:hint="Password"/>
 
 
@@ -113,7 +121,7 @@
                     android:layout_height="wrap_content" />
             <Button
                     android:id="@+id/signUp_btn_submit"
-                    android:text="Submit"
+                    android:text="Register"
                     android:textAllCaps="false"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -121,16 +129,24 @@
 
 
         <!--Go to Login Page-->
-        <TextView
-                android:textColor="@color/white"
-                android:id="@+id/link_logIn"
+        <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center|bottom"
-                android:layout_marginBottom="10dp"
-                android:text="Already signed up? Login"
-                android:textSize="16dip" />
+                android:gravity="bottom"
+                android:layout_weight="1">
+
+            <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/link_logIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="Already signed up? Login"
+                    android:textSize="16dip" />
+
+        </RelativeLayout>
+
 
     </LinearLayout>
 
