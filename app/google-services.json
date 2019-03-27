@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "987073728234",
+    "firebase_url": "https://vultures-bc2b7.firebaseio.com",
+    "project_id": "vultures-bc2b7",
+    "storage_bucket": "vultures-bc2b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987073728234:android:c9a021b84a51899e",
+        "android_client_info": {
+          "package_name": "com.example.vultures"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987073728234-ogodcc1f27rc3bkrc5q67h0sb2tn78b6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vultures",
+            "certificate_hash": "2b903d29594f44c37b6b33e05dd59b8cc164fd10"
+          }
+        },
+        {
+          "client_id": "987073728234-1o3cnj58tbm6mr34oeamu36gjkemvhd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm7F9R8uLvPSrrtH2NczGim8LUzy08LH8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987073728234-1o3cnj58tbm6mr34oeamu36gjkemvhd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
