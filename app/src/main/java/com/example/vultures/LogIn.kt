@@ -40,25 +40,16 @@ class LogIn : AppCompatActivity() {
         // Enables regular immersive mode.
         // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
         // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE
-                // Set the content to appear under the system bars so that the
-                // content doesn't resize when the system bars hide and show.
-                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                //or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-                // Hide the nav bar and status bar
-               // or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                //or View.SYSTEM_UI_FLAG_FULLSCREEN)
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE)
+            //  Set the content to appear under the system bars so that the
+            //  content doesn't resize when the system bars hide and show.
+            //  or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            //  or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            //  or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            //  Hide the nav bar and status bar
+            //  or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            //  or View.SYSTEM_UI_FLAG_FULLSCREEN)
     }
-
-    // Shows the system bars by removing all the flags
-// except for the ones that make the content appear under the system bars.
-    private fun showSystemUI() {
-        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-              //  or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
-    }
-
 
 
     // Checks database for user login info, then login/not
@@ -94,12 +85,6 @@ class LogIn : AppCompatActivity() {
 
                             // ...
                         }
-
-
-
-
-
-
                 }
             }
             .addOnFailureListener { exception ->
@@ -178,11 +163,7 @@ class LogIn : AppCompatActivity() {
 
       //  hideSystemUI()
         setContentView(R.layout.activity_login)
-//        link_signUp.setOnClickListener{
-//
-//            val intent = SignUp.createIntent(this)
-//            startActivityForResult(intent, SIGNUP)
-//        }
+
         login_btn_submit.setOnClickListener {
 
             val userName = login_userName_field.text.toString()

@@ -9,7 +9,6 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignUp : AppCompatActivity() {
@@ -39,12 +38,11 @@ class SignUp : AppCompatActivity() {
         signUp_btn_reset.setOnClickListener {
             Name_field.text = null
             email_field.text = null
-            signUp_password_field.text = null
             signUp_userName_field.text = null
+            signUp_password_field.text = null
+            signUp_password_field2.text = null
         }
-        link_logIn.setOnClickListener {
-            finish()
-        }
+
         auth = FirebaseAuth.getInstance()
     }
 
@@ -124,7 +122,7 @@ class SignUp : AppCompatActivity() {
                     entry["email"] = user?.email.toString()
                     entry["username"] = signUp_userName_field.text.toString()
 
-// Add a new document with a generated ID
+                    // Add a new document with a generated ID
                     db.collection("users").document(user?.email.toString())
                         .set(entry)
                         .addOnSuccessListener { Log.d(LOG_TAG, "DocumentSnapshot successfully written!") }

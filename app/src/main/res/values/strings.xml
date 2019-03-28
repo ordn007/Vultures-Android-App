@@ -4,6 +4,7 @@
     <string name="page_title_label">Main Page</string>
 
     <string name="login_title_label">Login</string>
+    <string name="sign_up_title_label">Register</string>
 
     <string name="new_account">No account yet? Create one</string>
     <string name="already_a_user">I already have an account, login</string>

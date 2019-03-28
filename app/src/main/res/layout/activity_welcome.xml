@@ -23,8 +23,8 @@
                     style="?android:listSeparatorTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/glow_green"
-                    android:gravity="center|top"
+                    android:layout_weight="2"
+                    android:gravity="center"
                     android:text="@string/app_name"
                     android:textSize="24sp"/>
 
@@ -62,8 +62,11 @@
                     android:id="@+id/welcome_pg_join_us"
                     android:text="@string/join_us"
                     android:textAllCaps="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape"/>
 
         </LinearLayout>
 
@@ -76,6 +79,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center|bottom"
                 android:text="@string/already_a_user"
+                android:fontFamily="@font/gotham"
                 android:textSize="16dip" />
 
     </LinearLayout>
