@@ -3,8 +3,11 @@
 
     <string name="page_title_label">Main Page</string>
 
-    <string name="new_account">No account yet? Create one</string>
+    <string name="login_title_label">Login</string>
 
+    <string name="new_account">No account yet? Create one</string>
+    <string name="already_a_user">I already have an account, login</string>
+    <string name="join_us">Join Vultures</string>
     <string name="the_nest">The Nest</string>
     <string name="make_a_post">Make A Post</string>
     <string name="view_map">View Map</string>

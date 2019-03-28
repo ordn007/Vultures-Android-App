@@ -1,14 +1,13 @@
 package com.example.vultures
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
@@ -19,8 +18,12 @@ class LogIn : AppCompatActivity() {
 
     companion object {
         private const val LOG_TAG = "448.LogIn"
-        private const val SIGNUP = 1
         private const val RC_SIGN_IN = 123
+
+        fun createIntent(context: Context?): Intent {
+            val intent = Intent(context, LogIn::class.java)
+            return intent
+        }
     }
 
 
@@ -138,11 +141,11 @@ class LogIn : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
 
-        link_signUp.setOnClickListener{
-
-            val intent = SignUp.createIntent(this)
-            startActivityForResult(intent, SIGNUP)
-        }
+//        link_signUp.setOnClickListener{
+//
+//            val intent = SignUp.createIntent(this)
+//            startActivityForResult(intent, SIGNUP)
+//        }
         login_btn_submit.setOnClickListener {
 
             val userName = login_userName_field.text.toString()
