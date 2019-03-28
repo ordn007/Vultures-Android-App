@@ -53,26 +53,14 @@
                 android:text="Register"/>
 
         <EditText
-                android:id="@+id/firstName_field"
+                android:id="@+id/Name_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
                 android:textColor="@color/glow_green"
                 android:layout_marginLeft="25.0dip"
                 android:layout_marginRight="25.0dip"
-                android:hint="First Name"/>
-
-        <EditText
-                android:id="@+id/lastName_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/glow_green1"
-                android:textColor="@color/glow_green"
-                android:layout_marginLeft="25.0dip"
-                android:layout_marginRight="25.0dip"
-                android:hint="Last Name"/>
-
-
+                android:hint="Name"/>
 
         <EditText
                 android:id="@+id/email_field"
@@ -85,7 +73,7 @@
                 android:hint="Email Address"/>
 
         <EditText
-                android:id="@+id/login_userName_field"
+                android:id="@+id/signUp_userName_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
@@ -95,7 +83,7 @@
                 android:hint="User Name"/>
 
         <EditText
-                android:id="@+id/login_password"
+                android:id="@+id/signUp_password_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/glow_green1"
@@ -104,6 +92,19 @@
                 android:layout_marginLeft="25.0dip"
                 android:layout_marginRight="25.0dip"
                 android:hint="Password"/>
+        <EditText
+                android:id="@+id/signUp_password_field2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/glow_green1"
+                android:textColor="@color/glow_green"
+                android:inputType="textPassword"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
+                android:hint="Confirm Password"/>
+
+
+
 
 
         <!--Buttons-->

@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_nest.*
 
 class NestActivity : AppCompatActivity() {
@@ -41,6 +42,8 @@ class NestActivity : AppCompatActivity() {
             launchPostActivityDetails()
         }
 
+        val user = FirebaseAuth.getInstance().currentUser
+        Toast.makeText(applicationContext, "Nest ${user?.email.toString()}", Toast.LENGTH_SHORT).show()
 
     }
 

@@ -12,9 +12,13 @@ import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LogIn : AppCompatActivity() {
+
+    val db = FirebaseFirestore.getInstance()
+    private lateinit var auth: FirebaseAuth
 
     companion object {
         private const val LOG_TAG = "448.LogIn"
@@ -59,14 +63,52 @@ class LogIn : AppCompatActivity() {
 
     // Checks database for user login info, then login/not
     fun logIn() {
-        var userName = findViewById<EditText>(R.id.login_userName_field)
-        var myText = "Logged in as " + userName.text
-        val toast = Toast.makeText(applicationContext, myText, Toast.LENGTH_SHORT)
-        toast.show()
+        db.collection("users")
+            .whereEqualTo("username", login_userName_field.text.toString())
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    //Log.d(TAG, "${document.id} => ${document.data}")
+                    var email = document.get("email").toString()
 
-        //Bypassing actual login and just launching NestActivity
-        val intent = NestActivity.createIntent( baseContext)
-        startActivity(intent)
+
+                    auth.signInWithEmailAndPassword(email, login_password_field.text.toString())
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(LOG_TAG, "signInWithEmail:success")
+                                val user = auth.currentUser
+
+                                //Bypassing actual login and just launching NestActivity
+                                val intent = NestActivity.createIntent( baseContext)
+                                startActivity(intent)
+
+                                //updateUI(user)
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(LOG_TAG, "signInWithEmail:failure", task.exception)
+                                Toast.makeText(baseContext, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show()
+                               // updateUI(null)
+                            }
+
+                            // ...
+                        }
+
+
+
+
+
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(LOG_TAG, "Error getting documents: ", exception)
+            }
+
+
+
+
     }
     // Made this reset the Username and password fields
     fun cleanUpTextFields() {
@@ -105,11 +147,10 @@ class LogIn : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 Toast.makeText(applicationContext, "Sucesfully signed in", Toast.LENGTH_SHORT).show()
                 // Successfully signed in
-                signOut()
+                //signOut()
                 val user = FirebaseAuth.getInstance().currentUser
                 Toast.makeText(applicationContext, user?.email.toString(), Toast.LENGTH_SHORT).show()
-
-
+                logIn();
                 // ...
             } else {
                 Toast.makeText(applicationContext, "Sign in failed", Toast.LENGTH_SHORT).show()
@@ -135,12 +176,8 @@ class LogIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
       //  hideSystemUI()
-
         setContentView(R.layout.activity_login)
-
-
 //        link_signUp.setOnClickListener{
 //
 //            val intent = SignUp.createIntent(this)
@@ -151,8 +188,10 @@ class LogIn : AppCompatActivity() {
             val userName = login_userName_field.text.toString()
             val password = login_password_field.text.toString()
 
-            if (userName.isEmpty() || password.isEmpty()) {
-                Toast.makeText(applicationContext, "Enter a valid Username and Password", Toast.LENGTH_SHORT).show()
+            if (userName.isEmpty()) {
+                login_userName_field.error = "Required."
+            }else if(password.isEmpty()){
+                login_password_field.error = "Required"
             }else {
                 logIn()
             }
@@ -162,6 +201,8 @@ class LogIn : AppCompatActivity() {
         google_sign_in.setOnClickListener {
             createSignInIntent()
         }
+
+        auth = FirebaseAuth.getInstance()
     
     }
 
@@ -169,6 +210,7 @@ class LogIn : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.d(LOG_TAG, "onStart() called")
+        val currentUser = auth.currentUser
     }
 
     override fun onResume() {
