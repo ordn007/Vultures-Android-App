@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:background="@color/dark_theme_background"
+                                             android:background="@drawable/background"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
@@ -9,26 +9,87 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center"
-            android:padding="25dp">
+            android:gravity="center">
 
 
-        <!--App Names-->
         <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="25dp">
-            <TextView
-                    style="?android:listSeparatorTextViewStyle"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="80dp"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gotham"
+                        android:text="Good "
+                        android:textColor="@color/white"
+                        android:textSize="32sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:gravity="center"
-                    android:text="@string/app_name"
-                    android:textSize="24sp"/>
+                    android:orientation="vertical">
 
+                <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/gotham"
+                        android:text="Morning"
+                        android:textColor="@color/white"
+                        android:textSize="32sp" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="#deff00" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+            <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Vutures"
+                        android:fontFamily="@font/gotham"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"/>
+
+            </LinearLayout>
         </LinearLayout>
+        <!--App Names-->
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center"-->
+                <!--android:padding="25dp">-->
+            <!--<TextView-->
+                    <!--style="?android:listSeparatorTextViewStyle"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="2"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="@string/app_name"-->
+                    <!--android:textSize="24sp"/>-->
+
+        <!--</LinearLayout>-->
 
 
         <!--Application Logo-->

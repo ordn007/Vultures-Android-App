@@ -7,7 +7,7 @@
     <string name="sign_up_title_label">Register</string>
 
     <string name="new_account">No account yet? Create one</string>
-    <string name="already_a_user">I already have an account, login</string>
+    <string name="already_a_user"><u>I already have an account, login</u></string>
     <string name="join_us">Join Vultures</string>
     <string name="the_nest">The Nest</string>
     <string name="make_a_post">Make A Post</string>
