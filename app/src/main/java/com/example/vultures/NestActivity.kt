@@ -5,9 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_nest.*
@@ -53,7 +50,7 @@ class NestActivity : AppCompatActivity() {
     }
 
     private fun launchPostActivityDetails(){
-        val intent = PostActivityDetails.createIntent(baseContext)
+        val intent = PostList.createIntent(baseContext)
         startActivity(intent)
     }
 

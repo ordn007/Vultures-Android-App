@@ -135,7 +135,8 @@ class LogIn : AppCompatActivity() {
                 //signOut()
                 val user = FirebaseAuth.getInstance().currentUser
                 Toast.makeText(applicationContext, user?.email.toString(), Toast.LENGTH_SHORT).show()
-                logIn();
+                val intent = NestActivity.createIntent( baseContext)
+                startActivity(intent);
                 // ...
             } else {
                 Toast.makeText(applicationContext, "Sign in failed", Toast.LENGTH_SHORT).show()

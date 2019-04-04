@@ -29,7 +29,7 @@
         <activity android:name=".SignUp"></activity>
         <activity android:name=".NestActivity"></activity>
         <activity android:name=".PostActivity"></activity>
-        <activity android:name=".PostActivityDetails"></activity>
+        <activity android:name=".PostList"></activity>
         <activity android:name=".MapActivity"></activity>
         <activity android:name=".LogIn"></activity>
     </application>

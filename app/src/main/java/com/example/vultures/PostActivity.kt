@@ -45,15 +45,11 @@ class PostActivity : AppCompatActivity() {
 
         // hooks up the bottom panel
         post_bottom_panel_nest.setOnClickListener{
-            launchNest()
+            finish()
         }
     }
 
     //Launches the nest activity
-    private fun launchNest(){
-        finish()
-    }
-
     // Will commit the post for others to view
     private fun commitPost(){
         val title = title_field.text
