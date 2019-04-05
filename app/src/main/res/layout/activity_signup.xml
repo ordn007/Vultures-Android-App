@@ -40,7 +40,7 @@
                 android:textColor="@color/glow_green"
                 android:layout_marginLeft="25.0dip"
                 android:layout_marginRight="25.0dip"
-                android:hint="Name"/>
+                android:hint="First, Last Name"/>
 
         <EditText
                 android:id="@+id/email_field"
@@ -98,14 +98,24 @@
                     android:id="@+id/signUp_btn_reset"
                     android:text="Reset"
                     android:textAllCaps="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape"/>
+
             <Button
                     android:id="@+id/signUp_btn_submit"
                     android:text="Register"
                     android:textAllCaps="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape"/>
+
         </LinearLayout>
 
 

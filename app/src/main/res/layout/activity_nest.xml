@@ -37,8 +37,8 @@
 
             <ImageView
                     android:id="@+id/my_image_view"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
                     android:layout_gravity="center"
                     android:src="@drawable/vultureaid_icon"/>
 
@@ -67,19 +67,31 @@
                     android:text="@string/make_a_post"
                     android:textAllCaps="false"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape"/>
             <Button
                     android:id="@+id/view_map"
                     android:text="@string/view_map"
                     android:textAllCaps="false"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape"/>
             <Button
                     android:id="@+id/view_all_posts"
                     android:text="@string/view_all_posts"
                     android:textAllCaps="false"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape"/>
 
         </LinearLayout>
 

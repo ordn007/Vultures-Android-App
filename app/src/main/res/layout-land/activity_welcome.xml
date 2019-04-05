@@ -18,7 +18,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="30dp"
                 android:orientation="horizontal">
 
             <LinearLayout
@@ -74,34 +74,33 @@
 
             </LinearLayout>
         </LinearLayout>
-        <!--App Names-->
-        <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:gravity="center"-->
-        <!--android:padding="25dp">-->
-        <!--<TextView-->
-        <!--style="?android:listSeparatorTextViewStyle"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="2"-->
-        <!--android:gravity="center"-->
-        <!--android:text="@string/app_name"-->
-        <!--android:textSize="24sp"/>-->
+        
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-        <!--</LinearLayout>-->
+                <ImageView
+                    android:id="@+id/my_image_view"
+                    android:layout_width="175dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/vultureaid_icon"/>
 
+            </LinearLayout>
 
-        <!--Application Logo-->
-        <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
-                android:layout_marginTop="50dp"
-                android:gravity="center"
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-                android:orientation="horizontal">
-            <Button
+                <Button
                     android:id="@+id/welcome_pg_join_us"
                     android:text="@string/join_us"
                     android:textAllCaps="false"
@@ -109,37 +108,23 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:fontFamily="@font/gotham"
-                    android:layout_gravity="start"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30dp"
                     android:background="@drawable/buttonshape"/>
 
-            <ImageView
-                    android:id="@+id/my_image_view"
-                    android:layout_width="125dp"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/vultureaid_icon"/>
-            <TextView
+                <TextView
                     android:textColor="@color/white"
                     android:id="@+id/welcome_logIn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="end|bottom"
+                    android:gravity="center"
+                    android:layout_marginTop="30dp"
                     android:text="@string/already_a_user"
                     android:fontFamily="@font/gotham"
-                    android:layout_marginHorizontal="10dp"
                     android:textSize="16dip" />
 
-        </FrameLayout>
-
-
-
-
-
-
-
-
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

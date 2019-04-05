@@ -53,7 +53,10 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="@string/nest"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape2"/>
 
         </LinearLayout>
 

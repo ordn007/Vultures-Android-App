@@ -28,75 +28,82 @@
         </LinearLayout>
 
 
-        <!--Application Logo-->
-
-
-
-        <TextView
-                android:textColor="@color/glow_green"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="25dp"
-                android:padding="10dp"
-                android:text="@string/the_nest"/>
-
-
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:gravity="center">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+            <!--Application Logo-->
             <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="0dp">
+                    android:gravity="center"
+                    android:layout_weight="1">
+
+                <TextView
+                        android:textColor="@color/glow_green"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textSize="25dp"
+                        android:padding="10dp"
+                        android:text="@string/the_nest"/>
+
 
                 <ImageView
                         android:id="@+id/my_image_view"
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:layout_gravity="start"
+                        android:layout_width="175dp"
+                        android:layout_height="175dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/vultureaid_icon"/>
+
             </LinearLayout>
 
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_weight="1">
 
-
-            <FrameLayout android:layout_width="match_parent"
-                         android:layout_height="match_parent"
-                            android:orientation="vertical">
                 <Button
                         android:id="@+id/make_a_post"
                         android:text="@string/make_a_post"
                         android:textAllCaps="false"
                         android:layout_width="fill_parent"
                         android:layout_gravity="top"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/gotham"
+                        android:background="@drawable/buttonshape"/>
                 <Button
                         android:id="@+id/view_map"
                         android:text="@string/view_map"
                         android:textAllCaps="false"
                         android:layout_width="fill_parent"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/gotham"
+                        android:background="@drawable/buttonshape"/>
                 <Button
                         android:id="@+id/view_all_posts"
                         android:text="@string/view_all_posts"
                         android:textAllCaps="false"
                         android:layout_width="fill_parent"
                         android:layout_gravity="bottom"
-                        android:layout_height="wrap_content" />
-            </FrameLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/gotham"
+                        android:background="@drawable/buttonshape"/>
 
-
+            </LinearLayout>
 
         </LinearLayout>
-
-
-
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

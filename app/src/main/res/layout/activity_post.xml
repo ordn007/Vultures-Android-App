@@ -99,23 +99,31 @@
         <!-- Buttons for Post ACtivity -->
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
 
             <Button
                     android:id="@+id/photo_button"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/photo_button_text"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape"/>
 
             <Button
                     android:id="@+id/post_button"
-                    android:layout_width="0dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/post_button_text"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape"/>
 
         </LinearLayout>
 
@@ -130,7 +138,11 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="@string/nest"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape2"/>
 
         </LinearLayout>
 
