@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+    <LinearLayout
+            android:background="@color/dark_theme_background"
+            android:id="@+id/login_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+        <!--App Names-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+            <TextView
+                    style="?android:listSeparatorTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textSize="24sp"/>
+        </LinearLayout>
+
+
+
+
+        <TextView
+                android:textColor="@color/glow_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                android:padding="5dp"
+                android:text="Post a Venue"/>
+
+        <!--Upload File-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+        </LinearLayout>
+
+        <!--Title label and title text -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_margin="5dp">
+            <!--Application Logo-->
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:padding="0dp">
+
+                <ImageView
+                        android:id="@+id/my_image_view"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="start"
+                        android:src="@drawable/vultureaid_icon"/>
+
+            </LinearLayout>
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                <EditText
+                        android:textColorHint="@color/glow_green1"
+                        android:id="@+id/title_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="top"
+                        android:text=""
+                        android:hint="Title"/>
+
+                <EditText
+                        android:textColorHint="@color/glow_green1"
+                        android:id="@+id/location_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center"
+                        android:text=""
+                        android:hint="Location"/>
+
+                <EditText
+                        android:textColorHint="@color/glow_green1"
+                        android:id="@+id/extra_info_field"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+
+                        android:text=""
+                        android:hint="Extra Info"/>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+        <!-- Buttons for Post ACtivity -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <Button
+                    android:id="@+id/photo_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/photo_button_text"
+                    android:textSize="24sp"/>
+
+            <Button
+                    android:id="@+id/post_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/post_button_text"
+                    android:textSize="24sp"/>
+
+        </LinearLayout>
+
+        <!-- Bottom Bar of three buttons -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|bottom">
+            <Button
+                    android:id="@+id/post_bottom_panel_nest"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nest"
+                    android:textSize="24sp"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

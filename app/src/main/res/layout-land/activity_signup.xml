@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <LinearLayout
+            android:background="@color/dark_theme_background"
+            android:id="@+id/login_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <!--App Names-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+            <TextView
+                    style="?android:listSeparatorTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/glow_green"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/sign_up_title_label"
+                    android:textSize="16sp"/>
+        </LinearLayout>
+
+
+
+
+        <!--Text Fields-->
+
+        <EditText
+                android:id="@+id/Name_field"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:textColorHint="@color/glow_green1"
+                android:textColor="@color/glow_green"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
+
+                android:hint="Name"/>
+
+        <EditText
+                android:id="@+id/email_field"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:textColorHint="@color/glow_green1"
+                android:textColor="@color/glow_green"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
+                android:hint="Email Address"/>
+
+        <EditText
+                android:id="@+id/signUp_userName_field"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:textColorHint="@color/glow_green1"
+                android:textColor="@color/glow_green"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
+                android:hint="User Name"/>
+
+        <EditText
+                android:id="@+id/signUp_password_field"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:textColorHint="@color/glow_green1"
+                android:textColor="@color/glow_green"
+                android:inputType="textPassword"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
+                android:hint="Password"/>
+        <EditText
+                android:id="@+id/signUp_password_field2"
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:textColorHint="@color/glow_green1"
+                android:textColor="@color/glow_green"
+                android:inputType="textPassword"
+                android:layout_marginLeft="25.0dip"
+                android:layout_marginRight="25.0dip"
+                android:hint="Confirm Password"/>
+
+
+
+
+
+        <!--Buttons-->
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+            <Button
+                    android:id="@+id/signUp_btn_reset"
+                    android:text="Reset"
+                    android:textAllCaps="false"
+                    android:layout_gravity="start"
+                    android:layout_marginHorizontal="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            <Button
+                    android:id="@+id/signUp_btn_submit"
+                    android:text="Register"
+                    android:textAllCaps="false"
+                    android:layout_gravity="end"
+                    android:layout_marginHorizontal="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

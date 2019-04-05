@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:background="@drawable/background"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/login_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+
+        <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="80dp"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gotham"
+                        android:text="Good "
+                        android:textColor="@color/white"
+                        android:textSize="32sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/gotham"
+                        android:text="Morning"
+                        android:textColor="@color/white"
+                        android:textSize="32sp" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="#deff00" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Vutures"
+                        android:fontFamily="@font/gotham"
+                        android:textColor="@color/white"
+                        android:textSize="32sp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--App Names-->
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:padding="25dp">-->
+        <!--<TextView-->
+        <!--style="?android:listSeparatorTextViewStyle"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="2"-->
+        <!--android:gravity="center"-->
+        <!--android:text="@string/app_name"-->
+        <!--android:textSize="24sp"/>-->
+
+        <!--</LinearLayout>-->
+
+
+        <!--Application Logo-->
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+
+                android:orientation="horizontal">
+            <Button
+                    android:id="@+id/welcome_pg_join_us"
+                    android:text="@string/join_us"
+                    android:textAllCaps="false"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:layout_gravity="start"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/buttonshape"/>
+
+            <ImageView
+                    android:id="@+id/my_image_view"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/vultureaid_icon"/>
+            <TextView
+                    android:textColor="@color/white"
+                    android:id="@+id/welcome_logIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="end|bottom"
+                    android:text="@string/already_a_user"
+                    android:fontFamily="@font/gotham"
+                    android:layout_marginHorizontal="10dp"
+                    android:textSize="16dip" />
+
+        </FrameLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
