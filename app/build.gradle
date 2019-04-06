@@ -9,6 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.vultures"
         targetSdkVersion 28
+        multiDexEnabled true
         minSdkVersion 16
         versionCode 1
         versionName "1.0"
@@ -35,6 +36,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-firestore:4.3.1'
     implementation 'com.google.firebase:firebase-firestore:18.1.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:multidex:1.0.3'
 
 
 //    implementation 'com.esri.arcgisruntime:arcgis-android:100.4.0'
