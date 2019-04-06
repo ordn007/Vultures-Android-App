@@ -6,10 +6,15 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_nest.*
 import kotlinx.android.synthetic.main.activity_post.*
 
 class PostActivity : AppCompatActivity() {
+
+
+    private var firestoreDB: FirebaseFirestore? = null
+    internal var id: String = ""
 
 
     companion object {
@@ -27,6 +32,16 @@ class PostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
+        firestoreDB = FirebaseFirestore.getInstance()
+
+        val bundle = intent.extras
+        if (bundle != null) {
+            id = bundle.getString("UpdatePostId")
+
+            title_field.setText(bundle.getString("UpdatePostTitle"))
+            location_field.setText(bundle.getString("UpdatePostContent"))
+        }
+
         //hooks up buttons -- currently only displays toasts saying what would happen
         photo_button.setOnClickListener{
             Toast.makeText(baseContext,"Access photos", Toast.LENGTH_SHORT).show()
@@ -36,17 +51,54 @@ class PostActivity : AppCompatActivity() {
             val location = location_field.text.toString()
             val extraInfo = extra_info_field.text.toString()
 
-            if (title.isEmpty() || (location.isEmpty() && extraInfo.isEmpty())) {
-                Toast.makeText(baseContext,"Enter A Title and Location or Extra Info", Toast.LENGTH_SHORT).show()
+            if (title.isEmpty() || location.isEmpty()) {
+                Toast.makeText(baseContext,"Enter A Title and Location", Toast.LENGTH_SHORT).show()
             }else {
-                commitPost()
+                if (id.isNotEmpty()) {
+                    updatePost(id, title, location)
+                } else {
+                    addPost(title, location)
+                }
             }
         }
-
         // hooks up the bottom panel
         post_bottom_panel_nest.setOnClickListener{
             finish()
         }
+    }
+
+
+
+    private fun updatePost(id: String, title: String, location: String) {
+        val post = Post(id, title, location).toMap()
+
+        firestoreDB!!.collection("posts")
+            .document(id)
+            .set(post)
+            .addOnSuccessListener {
+                Log.e(LOG_TAG, "Post document update successful!")
+                Toast.makeText(applicationContext, "Post has been updated!", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Log.e(LOG_TAG, "Error adding Post document", e)
+                Toast.makeText(applicationContext, "Post could not be updated!", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
+    private fun addPost(title: String, location: String) {
+        val post = Post(title, location).toMap()
+
+        firestoreDB!!.collection("posts")
+            .add(post)
+            .addOnSuccessListener { documentReference ->
+                Log.e(LOG_TAG, "DocumentSnapshot written with ID: " + documentReference.id)
+                Toast.makeText(applicationContext, "Post has been added!", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Log.e(LOG_TAG, "Error adding Post document", e)
+                Toast.makeText(applicationContext, "Post could not be added!", Toast.LENGTH_SHORT).show()
+            }
     }
 
     //Launches the nest activity

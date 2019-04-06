@@ -1,10 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- A RecyclerView with some commonly used attributes -->
-<android.support.v7.widget.RecyclerView
+<android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/post_recycler_view"
-        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:background="@drawable/background"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools">
 
-</android.support.v7.widget.RecyclerView>
+    <LinearLayout
+            android:id="@+id/login_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="25dp">
+
+        <!--App Names-->
+
+        <TextView
+                android:textColor="@color/glow_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                android:padding="30dp"
+                android:text="All Food Listings"/>
+
+        <!--FOOD LIST-->
+
+        <!--FOOD LIST PLACE HOLDER, THIS WILL BE REMOVED AFTER THE ALPHA RELEASE-->
+        <android.support.v7.widget.RecyclerView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/post_recycler_view"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+
+        <!-- Bottom Bar of three buttons -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|bottom">
+            <Button
+                    android:id="@+id/all_post_bottom_panel_nest"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nest"
+                    android:textSize="24sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/gotham"
+                    android:background="@drawable/buttonshape2"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
+
+
+

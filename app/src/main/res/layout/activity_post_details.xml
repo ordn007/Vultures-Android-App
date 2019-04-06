@@ -160,7 +160,7 @@
                 android:layout_weight="1"
                 android:gravity="center|bottom">
             <Button
-                    android:id="@+id/all_post_bottom_panel_nest"
+                    android:id="@+id/post_bottom_panel_nest"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="@string/nest"

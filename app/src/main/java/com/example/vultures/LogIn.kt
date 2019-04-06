@@ -62,7 +62,6 @@ class LogIn : AppCompatActivity() {
                     //Log.d(TAG, "${document.id} => ${document.data}")
                     var email = document.get("email").toString()
 
-
                     auth.signInWithEmailAndPassword(email, login_password_field.text.toString())
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {

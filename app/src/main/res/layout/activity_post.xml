@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:background="@drawable/background"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
     <LinearLayout
-            android:background="@color/dark_theme_background"
             android:id="@+id/login_main_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -18,6 +18,7 @@
                 android:padding="25dp">
             <TextView
                     style="?android:listSeparatorTextViewStyle"
+                    android:textColor="@color/glow_green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
@@ -73,6 +74,7 @@
                     android:id="@+id/title_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/glow_green"
                     android:layout_marginBottom="5dp"
                     android:text=""
                     android:hint="Title"/>
@@ -81,6 +83,7 @@
                     android:textColorHint="@color/glow_green1"
                     android:id="@+id/location_field"
                     android:layout_width="match_parent"
+                    android:textColor="@color/glow_green"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text=""
@@ -90,6 +93,7 @@
                     android:textColorHint="@color/glow_green1"
                     android:id="@+id/extra_info_field"
                     android:layout_width="match_parent"
+                    android:textColor="@color/glow_green"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text=""
@@ -130,7 +134,7 @@
         <!-- Bottom Bar of three buttons -->
         <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center|bottom">
             <Button
@@ -139,7 +143,6 @@
                     android:layout_height="wrap_content"
                     android:text="@string/nest"
                     android:textSize="24sp"
-                    android:layout_margin="10dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/gotham"
                     android:background="@drawable/buttonshape2"/>

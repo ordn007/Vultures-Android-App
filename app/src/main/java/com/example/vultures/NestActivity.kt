@@ -39,9 +39,12 @@ class NestActivity : AppCompatActivity() {
             launchPostActivityDetails()
         }
 
-        val user = FirebaseAuth.getInstance().currentUser
-        Toast.makeText(applicationContext, "Nest ${user?.email.toString()}", Toast.LENGTH_SHORT).show()
+        sign_out.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            finish()
+        }
 
+        val user = FirebaseAuth.getInstance().currentUser
     }
 
     private fun launchPostActivity(){

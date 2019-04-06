@@ -4,21 +4,30 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.google.firebase.firestore.FirebaseFirestore
+import android.widget.Toast
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.*
 import kotlinx.android.synthetic.main.activity_post_details.*
+import kotlinx.android.synthetic.main.post_recycler_view.*
+
 
 class PostList : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
-    val db = FirebaseFirestore.getInstance()
+
+    private var firestoreDB: FirebaseFirestore? = null
+    private var firestoreListener: ListenerRegistration? = null
+    private var postsList = mutableListOf<Post>()
+    private var adapter: FirestoreRecyclerAdapter<Post, PostHolder>? = null
 
 
     companion object {
@@ -32,34 +41,114 @@ class PostList : AppCompatActivity() {
     }
 
 
+    class PostHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var title: TextView
+        var location: TextView
+
+        init {
+            title = view.findViewById(R.id.post_title)
+            location = view.findViewById(R.id.post_location)
+        }
+
+    }
+
+    private fun updatePost(post: Post) {
+        val intent = Intent(this, PostActivity::class.java)
+        intent.putExtra("UpdatePostId", post.id)
+        intent.putExtra("UpdatePostTitle", post.mtitle)
+        intent.putExtra("UpdatePostContent", post.mlocation)
+        startActivity(intent)
+    }
+
+    private fun deletePost(id: String) {
+        firestoreDB!!.collection("posts")
+            .document(id)
+            .delete()
+            .addOnCompleteListener {
+                Toast.makeText(applicationContext, "Post has been deleted!", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_post_details)
+        setContentView(R.layout.post_recycler_view)
+
+
+
+        firestoreDB = FirebaseFirestore.getInstance()
+
+        val mLayoutManager = LinearLayoutManager(applicationContext)
+        post_recycler_view.layoutManager = mLayoutManager
+        post_recycler_view.itemAnimator = DefaultItemAnimator()
+
+
+        loadPostList()
+
+        firestoreListener = firestoreDB!!.collection("posts")
+            .addSnapshotListener(EventListener { documentSnapshots, e ->
+                if (e != null) {
+                    Log.e(LOG_TAG, "Listen failed!", e)
+                    return@EventListener
+                }
+
+                postsList = mutableListOf()
+
+                if (documentSnapshots != null) {
+                    for (doc in documentSnapshots) {
+                        val post = Post(doc.id, doc.get("title").toString(), doc.get("location").toString())
+                        postsList.add(post)
+                    }
+                }
+
+                adapter!!.notifyDataSetChanged()
+                post_recycler_view.adapter = adapter
+            })
+
+
 
         // hooks up the bottom panel
-        all_post_bottom_panel_nest.setOnClickListener{
+        all_post_bottom_panel_nest.setOnClickListener {
             launchNest()
         }
 
-      //  var myDataset = null
+    }
 
-        viewManager = LinearLayoutManager(this)
-       // viewAdapter = PostAdapter(myDataset)
 
-        recyclerView = findViewById<RecyclerView>(R.id.post_recycler_view).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
+    private fun loadPostList() {
 
-            // use a linear layout manager
-            layoutManager = viewManager
+        val query = FirebaseFirestore.getInstance().collection("posts")
 
-            // specify an viewAdapter (see also next example)
-            adapter = viewAdapter
+        val response = FirestoreRecyclerOptions.Builder<Post>()
+            .setQuery(query, Post::class.java)
+            .build()
 
+        adapter = object : FirestoreRecyclerAdapter<Post, PostHolder>(response) {
+
+            override fun onBindViewHolder(holder: PostHolder, position: Int, model: Post) {
+                val post = postsList[position]
+                holder.title.text = post.mtitle
+                holder.location.text = post.mlocation
+
+            }
+
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostHolder {
+                val view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.single_post, parent, false)
+                return PostHolder(view)
+            }
+
+            override fun onError(e: FirebaseFirestoreException) {
+                super.onError(e)
+                Toast.makeText(baseContext, "Error getting a snapshot",
+                    Toast.LENGTH_SHORT).show()
+            }
         }
 
-
+        adapter!!.notifyDataSetChanged()
+        post_recycler_view.adapter = adapter
     }
 
     //Launches the nest activity
@@ -71,6 +160,7 @@ class PostList : AppCompatActivity() {
     //Life Cycles Methods
     override fun onStart() {
         super.onStart()
+        adapter!!.startListening()
         Log.d(LOG_TAG, "onStart() called")
     }
 
@@ -87,42 +177,12 @@ class PostList : AppCompatActivity() {
     override fun onStop() {
         Log.d(LOG_TAG, "onStop() called")
         super.onStop()
+        adapter!!.stopListening()
     }
 
     override fun onDestroy() {
         Log.d(LOG_TAG, "onDestroy() called")
         super.onDestroy()
+        firestoreListener!!.remove()
     }
-
-
-//    class PostAdapter(private val myDataset: Array<String>) :
-//        RecyclerView.Adapter<PostAdapter.MyViewHolder>() {
-//
-//        // Provide a reference to the views for each data item
-//        // Complex data items may need more than one view per item, and
-//        // you provide access to all the views for a data item in a view holder.
-//        // Each data item is just a string in this case that is shown in a TextView.
-//        class MyViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
-//
-//
-//        // Create new views (invoked by the layout manager)
-//        override fun onCreateViewHolder(parent: ViewGroup,
-//                                        viewType: Int): PostAdapter.MyViewHolder {
-//            // create a new view
-//           // val textView = LayoutInflater.from(parent.context)
-//           //     .inflate(R.layout.my_text_view, parent, false) as TextView
-//            // set the view's size, margins, paddings and layout parameters
-//          //  return MyViewHolder(textView)
-//        }
-//
-//        // Replace the contents of a view (invoked by the layout manager)
-//        override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-//            // - get element from your dataset at this position
-//            // - replace the contents of the view with that element
-//            holder.textView.text = myDataset[position]
-//        }
-//
-//        // Return the size of your dataset (invoked by the layout manager)
-//        override fun getItemCount() = myDataset.size
-//    }
 }
