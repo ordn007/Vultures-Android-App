@@ -9,6 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.vultures"
         targetSdkVersion 28
+        multiDexEnabled true
         minSdkVersion 16
         multiDexEnabled true
         versionCode 1
