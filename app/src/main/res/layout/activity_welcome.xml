@@ -67,7 +67,7 @@
             <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" Vutures"
+                        android:text=" Vultures"
                         android:fontFamily="@font/gotham"
                         android:textColor="@color/white"
                         android:textSize="32sp"/>

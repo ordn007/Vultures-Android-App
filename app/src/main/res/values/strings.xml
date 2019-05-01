@@ -7,20 +7,30 @@
     <string name="sign_up_title_label">Register</string>
 
     <string name="new_account">No account yet? Create one</string>
-    <string name="already_a_user"><u>I already have an account, login</u></string>
+    <string name="already_a_user">
+        <u>I already have an account, login</u>
+    </string>
     <string name="join_us">Join Vultures</string>
     <string name="the_nest">The Nest</string>
     <string name="make_a_post">Make A Post</string>
     <string name="view_map">View Map</string>
     <string name="view_all_posts">View All Posts</string>
 
-    <string name="title_label">Title: </string>
-    <string name="location_label">Location: </string>
-    <string name="extra_info_label">Extra Info: </string>
-    <string name="post_button_text">Post </string>
-    <string name="photo_button_text">Photo </string>
-    <string name="map">Map </string>
-    <string name="nest">Nest </string>
-    <string name="post">Post </string>
+    <string name="title_label">Title:</string>
+    <string name="location_label">Location:</string>
+    <string name="extra_info_label">Extra Info:</string>
+    <string name="post_button_text">Post</string>
+    <string name="photo_button_text">Photo</string>
+    <string name="map">Map</string>
+    <string name="nest">Nest</string>
+    <string name="post">Post</string>
+    <string name="title_activity_maps">Map</string>
 
+    <string-array name="location_list">
+        <item>Brown Building</item>
+        <item>CTLM</item>
+        <item>Marquez Hall</item>
+        <item>Coors Tek</item>
+        <item>Ball Rooms</item>
+    </string-array>
 </resources>

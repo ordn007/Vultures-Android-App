@@ -59,8 +59,7 @@
 
                     <ImageView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/googleg_standard_color_18"/>
+                            android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 
@@ -106,11 +105,12 @@
 
                 <ImageView
                         android:id="@+id/my_image_view"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:src="@drawable/vultureaid_icon"/>
+                        android:layout_marginTop="20dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/meal_icon"/>
 
                  <!--Buttons for Post Activity -->
                 <LinearLayout
