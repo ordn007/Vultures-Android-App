@@ -27,10 +27,16 @@
     <string name="title_activity_maps">Map</string>
 
     <string-array name="location_list">
-        <item>Brown Building</item>
+        <item>Your Location</item>
+        <item>Alderson Hall</item>
+        <item>Berthoud Hall</item>
+        <item>Bradford Hall</item>
+        <item>Brown Hall</item>
         <item>CTLM</item>
+        <item>Coolbaugh House</item>
+        <item>CoorsTek</item>
+        <item>Maple Hall</item>
         <item>Marquez Hall</item>
-        <item>Coors Tek</item>
-        <item>Ball Rooms</item>
+        <item>Ball-Rooms A-E</item>
     </string-array>
 </resources>

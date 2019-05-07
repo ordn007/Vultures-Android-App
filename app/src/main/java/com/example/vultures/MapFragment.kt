@@ -10,7 +10,6 @@ import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
-import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.*
@@ -23,9 +22,12 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.firestore.FirebaseFirestore
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
-class MapFragment : SupportMapFragment() {
+class MapFragment : SupportMapFragment(){
 
 
     private lateinit var locationRequest: LocationRequest
@@ -41,7 +43,11 @@ class MapFragment : SupportMapFragment() {
         private const val LOG_TAG = "448.LocatorFragment"
         const val REQUEST_LOC_ON = 0
         const val REQUEST_LOC_PERMISSION = 1
+
     }
+
+
+//    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,8 +68,6 @@ class MapFragment : SupportMapFragment() {
                 Log.d(LOG_TAG, "Got a location: ${locationResult.lastLocation}")
                 lastLocation = locationResult.lastLocation
                 updateUI()
-//                location_text_view.text = "(${locationResult.lastLocation.latitude}, ${locationResult.lastLocation.longitude})"
-//                address_text_view.text = getAddress(locationResult.lastLocation)
             }
         }
 
@@ -71,8 +75,57 @@ class MapFragment : SupportMapFragment() {
             googleMap = it
             activity?.invalidateOptionsMenu()
         }
+
     }
 
+    // This method Add the marker information to the database and updates the UI info with the snackbar.
+//    private fun updateUIValues(title: String, location: String, description: String)  {
+//
+//        var date = Date()
+//        val formatter = SimpleDateFormat("MMM dd yyyy HH:mm:ss")
+//        val timeStamp: String = formatter.format(date)
+//
+//        // Create a new marker
+//        val marker = HashMap<String, Any>()
+//        marker["time"] = timeStamp
+//        marker["location"] = location
+//        marker["description"] = description
+//        marker["lat"] = lastLocation.latitude
+//        marker["lon"] = lastLocation.longitude
+//        marker["latLon"] = "${lastLocation.latitude}${lastLocation.longitude}"
+//        marker["title"] = title
+//        // Add a new document with a generated ID
+//        db.collection("markers")
+//            .add(marker)
+//            .addOnSuccessListener { documentReference ->
+//                PostActivity.REFERENCE_ID = documentReference.id
+//                Log.d(PostActivity.LOG_TAG, "DocumentSnapshot added with ID: ${PostActivity.REFERENCE_ID}")
+//
+//            }
+//            .addOnFailureListener { e ->
+//                Log.w(PostActivity.LOG_TAG, "Error adding document", e)
+//            }
+//    }
+//
+//    private fun addPersitedMarkers() {
+//        db.collection("markers")
+//            .get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    Log.d(PostActivity.LOG_TAG, "${document.id} => ${document.data}")
+//                    var lat = document.data["lat"] as Double
+//                    var lon = document.data["lon"] as Double
+//                    var name = document.data["title"] as String
+//
+//                    val markerPos = LatLng(lat, lon)
+//                    val dbMarkers = MarkerOptions().position(markerPos).title(name)
+//                    googleMap.addMarker(dbMarkers)
+//                }
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.w(PostActivity.LOG_TAG, "Error getting documents.", exception)
+//            }
+//    }
     override fun onStart() {
         super.onStart()
         checkIfLocationCanBeRetrieved()
@@ -80,13 +133,10 @@ class MapFragment : SupportMapFragment() {
     }
 
 
-//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        return inflater.inflate(R.layout.fragment_locator, container, false)
-//    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Log.d(LOG_TAG, "onCreateView() called")
         val mapView = super.onCreateView(inflater, container, savedInstanceState)
+
         return mapView
     }
 

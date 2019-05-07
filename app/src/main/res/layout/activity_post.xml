@@ -62,20 +62,15 @@
                     android:text=""
                     android:hint="Title"/>
 
-            <!--<Spinner-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content">-->
 
-            <!--</Spinner>-->
-            <EditText
-                    android:textColorHint="@color/glow_green1"
-                    android:id="@+id/location_field"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/glow_green"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text=""
-                    android:hint="Location"/>
+            <Spinner
+                    android:id="@+id/location_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                    android:textColor="@color/glow_green1"
+                    android:textSize="20sp"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"/>
 
             <EditText
                     android:textColorHint="@color/glow_green1"
@@ -94,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center">
+
 
             <Button
                     android:id="@+id/photo_button"
@@ -125,6 +121,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center|bottom">
+
             <Button
                     android:id="@+id/post_bottom_panel_nest"
                     android:layout_width="150dp"
@@ -136,7 +133,6 @@
                     android:background="@drawable/buttonshape2"/>
 
         </LinearLayout>
-
 
 
     </LinearLayout>

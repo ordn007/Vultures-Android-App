@@ -1,11 +1,5 @@
 package com.example.vultures
 
-import android.graphics.Bitmap
-import android.util.Log
-import com.google.firebase.firestore.Exclude
-import com.google.firebase.firestore.ServerTimestamp
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.google.type.Date
 
 
@@ -16,22 +10,27 @@ class Post {
     var id: String = ""
     var mtitle: String? = null
     var mlocation: String? = null
+    var mlat: Double = 0.0
+    var mlng: Double = 0.0
     var mTimestamp: Date? = null
 
     constructor() {}
 
-    constructor(title: String, location: String, path: String) {
+    constructor(title: String, location: String, path: String, lat: Double, lng: Double) {
         mtitle = title
         mlocation = location
         imageRef = path
-        Log.d("AAAAAAAAAAAAAAA", mtitle.toString())
+        mlat = lat
+        mlng = lng
     }
 
-    constructor(id: String, title: String, location: String, path: String) {
+    constructor(id: String, title: String, location: String, path: String, lat: Double, lng: Double) {
         this.id = id
         mtitle = title
         mlocation = location
         imageRef = path
+        mlat = lat
+        mlng = lng
     }
 
     fun toMap(): Map<String, Any> {
@@ -41,7 +40,8 @@ class Post {
         result.put("title", mtitle!!)
         result.put("location", mlocation!!)
         result.put("imagePath", imageRef!!)
-
+        result.put("latitude", mlat!!)
+        result.put("longitude", mlng!!)
         return result
     }
 

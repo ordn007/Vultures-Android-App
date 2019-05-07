@@ -73,15 +73,13 @@
                         android:text=""
                         android:hint="Title"/>
 
-                <EditText
-                        android:textColorHint="@color/glow_green1"
-                        android:id="@+id/location_field"
+                <Spinner
+                        android:id="@+id/location_spinner"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:layout_gravity="center"
-                        android:text=""
-                        android:hint="Location"/>
+                        android:layout_height="?android:attr/listPreferredItemHeightSmall"
+                        android:textColor="@color/glow_green1"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="5dp"/>
 
                 <EditText
                         android:textColorHint="@color/glow_green1"

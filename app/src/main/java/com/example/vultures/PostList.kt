@@ -29,7 +29,7 @@ import android.widget.ImageView
 class PostList : AppCompatActivity() {
 
 
-    private var firestoreDB: FirebaseFirestore? = null
+    private var firestoreDB: FirebaseFirestore = FirebaseFirestore.getInstance()
     private var firestoreListener: ListenerRegistration? = null
     private var postsList = mutableListOf<Post>()
     private var adapter: FirestoreRecyclerAdapter<Post, PostHolder>? = null
@@ -89,7 +89,7 @@ class PostList : AppCompatActivity() {
 
 
 
-        firestoreDB = FirebaseFirestore.getInstance()
+
 
         val mLayoutManager = LinearLayoutManager(applicationContext)
         post_recycler_view.layoutManager = mLayoutManager
@@ -109,7 +109,10 @@ class PostList : AppCompatActivity() {
 
                 if (documentSnapshots != null) {
                     for (doc in documentSnapshots) {
-                        val post = Post(doc.id, doc.get("title").toString(), doc.get("location").toString(), doc.get("imagePath").toString())
+                        println(doc.get("title").toString())
+                        println(doc.get("longitude").toString())
+
+                        val post = Post(doc.id, doc.get("title").toString(), doc.get("location").toString(), doc.get("imagePath").toString(), doc.get("latitude").toString().toDouble(),doc.get("longitude").toString().toDouble())
                         postsList.add(post)
                     }
                 }
