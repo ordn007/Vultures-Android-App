@@ -217,6 +217,8 @@ class PostActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         {
             val thumbnail = data!!.extras!!.get("data") as Bitmap
             my_image_view!!.setImageBitmap(thumbnail)
+            imagePath = UUID.randomUUID().toString()
+            imageRef = storageRef.child("${imagePath}.png")
             saveImage(thumbnail)
             Toast.makeText(this@PostActivity, "Image Saved!", Toast.LENGTH_SHORT).show()
         }
