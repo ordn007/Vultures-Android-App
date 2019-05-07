@@ -13,6 +13,8 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_post.*
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -24,6 +26,12 @@ class PostActivity : AppCompatActivity() {
 
 
     private var firestoreDB: FirebaseFirestore? = null
+    val storage = FirebaseStorage.getInstance("gs://vultures-bc2b7.appspot.com")
+    var storageRef = storage.reference
+    lateinit var bitmap: Bitmap
+    var imageRef = storageRef.child("default.jpg")
+    var imagePath = "default.png"
+
     internal var id: String = ""
 
     private val GALLERY = 1
@@ -68,10 +76,28 @@ class PostActivity : AppCompatActivity() {
                 Toast.makeText(baseContext,"Enter A Title and Location", Toast.LENGTH_SHORT).show()
             }else {
                 if (id.isNotEmpty()) {
-                    updatePost(id, title, location)
+                    updatePost(id, title, location, imagePath)
                 } else {
-                    addPost(title, location)
+                    addPost(title, location, imagePath)
                 }
+
+                if(::bitmap.isInitialized) {
+                    var uploadImage = bitmap
+
+
+                    val baos = ByteArrayOutputStream()
+                    uploadImage.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                    val data = baos.toByteArray()
+
+                    var uploadTask = imageRef.putBytes(data)
+                    uploadTask.addOnFailureListener {
+                        println("Image uploaded sucessfully")
+                    }.addOnSuccessListener {
+                        // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
+                        // ...
+                    }
+                }
+
             }
         }
         // hooks up the bottom panel
@@ -119,7 +145,12 @@ class PostActivity : AppCompatActivity() {
                 val contentURI = data!!.data
                 try
                 {
-                    val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
+                    bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
+
+                    imagePath = UUID.randomUUID().toString()
+                    imageRef = storageRef.child("${imagePath}.png")
+
+
                     val path = saveImage(bitmap)
                     Toast.makeText(this@PostActivity, "Image Saved!", Toast.LENGTH_SHORT).show()
                     my_image_view.setImageBitmap(bitmap)
@@ -144,7 +175,7 @@ class PostActivity : AppCompatActivity() {
 
     fun saveImage(myBitmap: Bitmap):String {
         val bytes = ByteArrayOutputStream()
-        myBitmap.compress(Bitmap.CompressFormat.JPEG, 90, bytes)
+        myBitmap.compress(Bitmap.CompressFormat.PNG, 90, bytes)
         val wallpaperDirectory = File(
             (Environment.getExternalStorageDirectory()).toString() + IMAGE_DIRECTORY)
         // have the object build the directory structure, if needed.
@@ -178,8 +209,8 @@ class PostActivity : AppCompatActivity() {
         return ""
     }
 
-    private fun updatePost(id: String, title: String, location: String) {
-        val post = Post(id, title, location).toMap()
+    private fun updatePost(id: String, title: String, location: String, path: String) {
+        val post = Post(id, title, location, path).toMap()
 
         firestoreDB!!.collection("posts")
             .document(id)
@@ -195,8 +226,8 @@ class PostActivity : AppCompatActivity() {
     }
 
 
-    private fun addPost(title: String, location: String) {
-        val post = Post(title, location).toMap()
+    private fun addPost(title: String, location: String, path: String) {
+        val post = Post(title, location, path).toMap()
 
         firestoreDB!!.collection("posts")
             .add(post)

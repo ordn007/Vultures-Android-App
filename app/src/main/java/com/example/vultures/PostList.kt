@@ -17,8 +17,13 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.*
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_post_details.*
 import kotlinx.android.synthetic.main.post_recycler_view.*
+import android.graphics.BitmapFactory
+import android.graphics.Bitmap
+import android.widget.ImageView
 
 
 class PostList : AppCompatActivity() {
@@ -28,6 +33,10 @@ class PostList : AppCompatActivity() {
     private var firestoreListener: ListenerRegistration? = null
     private var postsList = mutableListOf<Post>()
     private var adapter: FirestoreRecyclerAdapter<Post, PostHolder>? = null
+
+    val storage = FirebaseStorage.getInstance("gs://vultures-bc2b7.appspot.com")
+    var storageRef = storage.reference
+
 
 
     companion object {
@@ -44,10 +53,12 @@ class PostList : AppCompatActivity() {
     class PostHolder(view: View) : RecyclerView.ViewHolder(view) {
         var title: TextView
         var location: TextView
+        lateinit var image: ImageView
 
         init {
             title = view.findViewById(R.id.post_title)
             location = view.findViewById(R.id.post_location)
+            image = view.findViewById(R.id.post_image)
         }
 
     }
@@ -98,7 +109,7 @@ class PostList : AppCompatActivity() {
 
                 if (documentSnapshots != null) {
                     for (doc in documentSnapshots) {
-                        val post = Post(doc.id, doc.get("title").toString(), doc.get("location").toString())
+                        val post = Post(doc.id, doc.get("title").toString(), doc.get("location").toString(), doc.get("imagePath").toString())
                         postsList.add(post)
                     }
                 }
@@ -131,6 +142,18 @@ class PostList : AppCompatActivity() {
                 val post = postsList[position]
                 holder.title.text = post.mtitle
                 holder.location.text = post.mlocation
+
+                var islandRef = storageRef.child("${post.imageRef!!}.png")
+                println(post.imageRef)
+
+                val ONE_MEGABYTE: Long = 1024 * 1024
+                islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener {
+                    val bmp = BitmapFactory.decodeByteArray(it, 0, it.size)
+                    holder.image.setImageBitmap(bmp)
+                    // Data for "images/island.jpg" is returned, use this as needed
+                }.addOnFailureListener {
+                    // Handle any errors
+                }
 
             }
 

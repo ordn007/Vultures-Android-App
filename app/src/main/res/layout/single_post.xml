@@ -7,35 +7,54 @@
         android:layout_height="wrap_content"
         >
 
-    <TextView
-            android:id="@+id/post_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/glow_green1"
-            android:text = "Title: "
-            android:textSize="24sp"
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView
+                android:id="@+id/post_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/meal_icon"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+            <TextView
+                    android:id="@+id/post_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/glow_green1"
+                    android:text = "Title: "
+                    android:textSize="24sp"
             />
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/glow_green1"
-                android:text = "Location: "
-                android:textSize="24sp"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/glow_green1"
+                        android:text = "Location: "
+                        android:textSize="24sp"/>
 
-        <TextView
-                android:id="@+id/post_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/glow_green1"
-                tools:text = "Location: "
-                android:textSize="24sp"/>
+                <TextView
+                        android:id="@+id/post_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/glow_green1"
+                        tools:text = "Location: "
+                        android:textSize="24sp"/>
 
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 
 </LinearLayout>
