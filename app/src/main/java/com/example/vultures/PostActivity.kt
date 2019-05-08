@@ -150,7 +150,7 @@ class PostActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 //            spinner.adapter = adapter
 //        }
 
-        val adapter = ArrayAdapter.createFromResource(this, R.array.location_list, android.R.layout.simple_spinner_item);
+        val adapter = ArrayAdapter.createFromResource(this, R.array.location_list, R.layout.spinner_item);//changed simple_spinner_item -> spinner_item
         spinner.adapter = adapter
 
         spinner.onItemSelectedListener = this
