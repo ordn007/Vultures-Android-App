@@ -47,7 +47,7 @@ class MapFragment : SupportMapFragment(){
     }
 
 
-//    val db = FirebaseFirestore.getInstance()
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,6 +71,7 @@ class MapFragment : SupportMapFragment(){
             }
         }
 
+        addPersitedMarkers()
         getMapAsync {
             googleMap = it
             activity?.invalidateOptionsMenu()
@@ -78,54 +79,29 @@ class MapFragment : SupportMapFragment(){
 
     }
 
-    // This method Add the marker information to the database and updates the UI info with the snackbar.
-//    private fun updateUIValues(title: String, location: String, description: String)  {
-//
-//        var date = Date()
-//        val formatter = SimpleDateFormat("MMM dd yyyy HH:mm:ss")
-//        val timeStamp: String = formatter.format(date)
-//
-//        // Create a new marker
-//        val marker = HashMap<String, Any>()
-//        marker["time"] = timeStamp
-//        marker["location"] = location
-//        marker["description"] = description
-//        marker["lat"] = lastLocation.latitude
-//        marker["lon"] = lastLocation.longitude
-//        marker["latLon"] = "${lastLocation.latitude}${lastLocation.longitude}"
-//        marker["title"] = title
-//        // Add a new document with a generated ID
-//        db.collection("markers")
-//            .add(marker)
-//            .addOnSuccessListener { documentReference ->
-//                PostActivity.REFERENCE_ID = documentReference.id
-//                Log.d(PostActivity.LOG_TAG, "DocumentSnapshot added with ID: ${PostActivity.REFERENCE_ID}")
-//
-//            }
-//            .addOnFailureListener { e ->
-//                Log.w(PostActivity.LOG_TAG, "Error adding document", e)
-//            }
-//    }
-//
-//    private fun addPersitedMarkers() {
-//        db.collection("markers")
-//            .get()
-//            .addOnSuccessListener { result ->
-//                for (document in result) {
-//                    Log.d(PostActivity.LOG_TAG, "${document.id} => ${document.data}")
-//                    var lat = document.data["lat"] as Double
-//                    var lon = document.data["lon"] as Double
-//                    var name = document.data["title"] as String
-//
-//                    val markerPos = LatLng(lat, lon)
-//                    val dbMarkers = MarkerOptions().position(markerPos).title(name)
-//                    googleMap.addMarker(dbMarkers)
-//                }
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.w(PostActivity.LOG_TAG, "Error getting documents.", exception)
-//            }
-//    }
+    private fun addPersitedMarkers() {
+        db.collection("posts")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    Log.d(PostActivity.LOG_TAG, "${document.id} => ${document.data}")
+                    var lat = document.data["latitude"] as Double
+                    var lon = document.data["longitude"] as Double
+                    var title = document.data["title"] as String
+                    var location = document.data["location"] as String
+
+                    var name : String = "${title} @ ${location}"
+
+
+                    val markerPos = LatLng(lat, lon)
+                    val dbMarkers = MarkerOptions().position(markerPos).title(name)
+                    googleMap.addMarker(dbMarkers)
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(PostActivity.LOG_TAG, "Error getting documents.", exception)
+            }
+    }
     override fun onStart() {
         super.onStart()
         checkIfLocationCanBeRetrieved()
@@ -262,10 +238,10 @@ class MapFragment : SupportMapFragment(){
         val myMarker = MarkerOptions().position(myLocationPoint).title( getAddress(lastLocation) )
 
         // clear any prior markers on the map
-        googleMap.clear()
+//        googleMap.clear()
 
         // add the new markers
-        googleMap.addMarker(myMarker)
+//        googleMap.addMarker(myMarker)
 
         // include all points that should be within the bounds of the zoo
         // convex hull

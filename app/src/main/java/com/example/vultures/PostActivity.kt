@@ -19,7 +19,10 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.MapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
@@ -42,6 +45,8 @@ class PostActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     lateinit var bitmap: Bitmap
     var imageRef = storageRef.child("default.jpg")
     var imagePath = "default.png"
+
+    private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     internal var id: String = ""
 
@@ -67,7 +72,6 @@ class PostActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
         when(parent?.getItemAtPosition(position).toString()){
-            "Your Location" -> getLatLon(0.0, 0.0)
             "Alderson Hall" -> getLatLon(39.750513, -105.220661)
             "Berthoud Hall" -> getLatLon(339.750171, -105.222602)
             "Brown Hall" -> getLatLon(39.749620, -105.221690)
@@ -77,7 +81,6 @@ class PostActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             "Maple Hall" -> getLatLon(39.748730, -105.221130)
             "Marquez Hall" -> getLatLon(39.752331, -105.220062)
             "Ball-Rooms A-E" -> getLatLon(39.748960, -105.222300)
-
         }
     }
 
@@ -100,6 +103,8 @@ class PostActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             title_field.setText(bundle.getString("UpdatePostTitle"))
 //            location_field.setText(bundle.getString("UpdatePostContent"))
         }
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
         //hooks up buttons -- currently only displays toasts saying what would happen
         photo_button.setOnClickListener{ showPictureDialog() }

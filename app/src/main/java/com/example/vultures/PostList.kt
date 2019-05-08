@@ -148,8 +148,6 @@ class PostList : AppCompatActivity() {
 
                var islandRef = storageRef.child("${post.imageRef!!}.png")
                println(islandRef)
-                println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-
                 val ONE_MEGABYTE: Long = 5 * 1024 * 1024
                 islandRef.getBytes(ONE_MEGABYTE).addOnSuccessListener {
                     val bmp = BitmapFactory.decodeByteArray(it, 0, it.size)
